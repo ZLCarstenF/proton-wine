@@ -57,6 +57,7 @@
     VK_DEVICE_PFN(vkAllocateCommandBuffers) \
     VK_DEVICE_PFN(vkAllocateDescriptorSets) \
     VK_DEVICE_PFN(vkAllocateMemory) \
+    VK_DEVICE_PFN(vkCreateSharedHandle) \
     VK_DEVICE_PFN(vkBeginCommandBuffer) \
     VK_DEVICE_PFN(vkBindBufferMemory) \
     VK_DEVICE_PFN(vkBindImageMemory) \
