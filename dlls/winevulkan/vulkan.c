@@ -5045,6 +5045,7 @@ NTSTATUS wine_vkAllocateMemory(void *args)
             FIXME("[wine_vkAllocateMemory] Calling device[%p]->funcs.p_vkGetMemoryFdKHR[%p] memory[%x] \n", device, device->funcs.p_vkGetMemoryFdKHR, memory);
             if (device->funcs.p_vkGetMemoryFdKHR(device->device, &get_fd_info, &fd) == VK_SUCCESS)
             {
+                FIXME("[wine_vkAllocateMemory] vkGetMemoryFdKHR success: %x\n", fd);
                 object->handle = create_gpu_resource(fd, handle_export_info ? handle_export_info->name : NULL);
                 object->access = handle_export_info ? handle_export_info->dwAccess : GENERIC_ALL;
                 if (handle_export_info && handle_export_info->pAttributes)
@@ -5103,6 +5104,7 @@ NTSTATUS wine_vkCreateSharedHandle(void *args)
     if (device->funcs.p_vkGetMemoryFdKHR(device->device, &get_fd_info, &fd) == VK_SUCCESS)
     {
         FIXME("=====wine_vkCreateSharedHandle SUCCESS=====\n");
+        FIXME("[wine_vkCreateSharedHandle] vkGetMemoryFdKHR success: %x\n", fd);
         *outFD = fd;
     }
     else
@@ -5110,6 +5112,8 @@ NTSTATUS wine_vkCreateSharedHandle(void *args)
         FIXME("=====wine_vkCreateSharedHandle FAILED=====\n");
         return VK_ERROR_OUT_OF_HOST_MEMORY; 
     }
+
+    FIXME("[wine_vkCreateSharedHandle] END\n");
 
     return VK_SUCCESS;
 }
