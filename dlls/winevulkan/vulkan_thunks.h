@@ -2199,7 +2199,7 @@ struct vulkan_device_funcs
     VkResult (*p_vkAllocateCommandBuffers)(VkDevice, const VkCommandBufferAllocateInfo_host *, VkCommandBuffer *);
     VkResult (*p_vkAllocateDescriptorSets)(VkDevice, const VkDescriptorSetAllocateInfo_host *, VkDescriptorSet *);
     VkResult (*p_vkAllocateMemory)(VkDevice, const VkMemoryAllocateInfo_host *, const VkAllocationCallbacks *, VkDeviceMemory *);
-    VkResult (*p_vkCreateSharedHandle)(VkDevice, VkDeviceMemory, uint32_t *);
+    //VkResult (*p_vkCreateSharedHandle)(VkDevice, VkDeviceMemory, uint32_t *);
     VkResult (*p_vkBeginCommandBuffer)(VkCommandBuffer, const VkCommandBufferBeginInfo_host *);
     VkResult (*p_vkBindAccelerationStructureMemoryNV)(VkDevice, uint32_t, const VkBindAccelerationStructureMemoryInfoNV_host *);
     VkResult (*p_vkBindBufferMemory)(VkDevice, VkBuffer, VkDeviceMemory, VkDeviceSize);
@@ -2737,7 +2737,6 @@ struct vulkan_instance_funcs
     USE_VK_FUNC(vkAllocateCommandBuffers) \
     USE_VK_FUNC(vkAllocateDescriptorSets) \
     USE_VK_FUNC(vkAllocateMemory) \
-    USE_VK_FUNC(vkCreateSharedHandle) \
     USE_VK_FUNC(vkBeginCommandBuffer) \
     USE_VK_FUNC(vkBindAccelerationStructureMemoryNV) \
     USE_VK_FUNC(vkBindBufferMemory) \
