@@ -12753,6 +12753,7 @@ const unixlib_entry_t __wine_unix_call_funcs[] =
     wine_vkAllocateCommandBuffers,
     wine_vkAllocateDescriptorSets,
     wine_vkAllocateMemory,
+    wine_vkCreateSharedHandle,
     wine_vkBeginCommandBuffer,
     wine_vkBindAccelerationStructureMemoryNV,
     wine_vkBindBufferMemory,

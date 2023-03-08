@@ -5081,6 +5081,37 @@ NTSTATUS wine_vkAllocateMemory(void *args)
     return res;
 }
 
+NTSTATUS wine_vkCreateSharedHandle(void *args)
+{
+    struct vkCreateSharedHandle_params *params = args;
+
+    VkDevice device = params->device;
+    VkDeviceMemory memory = params->memory;
+    int* outFD = params->fd;
+
+    FIXME("=====wine_vkCreateSharedHandle=====\n");
+
+    VkMemoryGetFdInfoKHR get_fd_info;
+    int fd;
+    get_fd_info.sType = VK_STRUCTURE_TYPE_MEMORY_GET_FD_INFO_KHR;
+    get_fd_info.pNext = NULL;
+    get_fd_info.memory = memory;
+    get_fd_info.handleType = VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT;
+
+    if (device->funcs.p_vkGetMemoryFdKHR(device->device, &get_fd_info, &fd) == VK_SUCCESS)
+    {
+        FIXME("=====wine_vkCreateSharedHandle SUCCESS=====\n");
+        *outFD = fd;
+    }
+    else
+    {
+        FIXME("=====wine_vkCreateSharedHandle FAILED=====\n");
+        return VK_ERROR_OUT_OF_HOST_MEMORY; 
+    }
+
+    return VK_SUCCESS;
+}
+
 NTSTATUS wine_vkGetMemoryWin32HandleKHR(void *args)
 {
     struct vkGetMemoryWin32HandleKHR_params *params = args;
