@@ -9788,12 +9788,6 @@ typedef void* <name>MTLSharedEvent_id</name>;
             <param optional="true">const <type>VkAllocationCallbacks</type>* <name>pAllocator</name></param>
             <param><type>VkDeviceMemory</type>* <name>pMemory</name></param>
         </command>
-        <command successcodes="VK_SUCCESS" errorcodes="VK_ERROR_OUT_OF_HOST_MEMORY">
-            <proto><type>VkResult</type> <name>vkCreateSharedHandle</name></proto>
-            <param><type>VkDevice</type> <name>device</name></param>
-            <param><type>VkDeviceMemory</type> <name>memory</name></param>
-            <param><type>uint32_t</type>* <name>fd</name></param>
-        </command>        
         <command>
             <proto><type>void</type> <name>vkFreeMemory</name></proto>
             <param><type>VkDevice</type> <name>device</name></param>

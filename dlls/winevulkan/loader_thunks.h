@@ -22,7 +22,6 @@ enum unix_call
     unix_vkAllocateCommandBuffers,
     unix_vkAllocateDescriptorSets,
     unix_vkAllocateMemory,
-    unix_vkCreateSharedHandle,
     unix_vkBeginCommandBuffer,
     unix_vkBindAccelerationStructureMemoryNV,
     unix_vkBindBufferMemory,
@@ -602,13 +601,6 @@ struct vkAllocateMemory_params
     const VkMemoryAllocateInfo *pAllocateInfo;
     const VkAllocationCallbacks *pAllocator;
     VkDeviceMemory *pMemory;
-};
-
-struct vkCreateSharedHandle_params
-{
-    VkDevice device;
-    VkDeviceMemory memory;
-    int* fd;
 };
 
 struct vkBeginCommandBuffer_params

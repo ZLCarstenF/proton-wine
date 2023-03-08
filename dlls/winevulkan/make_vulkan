@@ -211,7 +211,6 @@ FUNCTION_OVERRIDES = {
     # Device functions
     "vkAllocateCommandBuffers" : {"dispatch" : True, "driver" : False, "thunk" : ThunkType.NONE},
     "vkAllocateMemory" : {"dispatch" : True, "driver" : False, "thunk" : ThunkType.NONE},
-    "vkCreateSharedHandle" : {"dispatch" : True, "driver" : False, "thunk" : ThunkType.NONE},
     "vkCreateBuffer" : {"dispatch" : True, "driver" : False, "thunk" : ThunkType.NONE},
     "vkCreateCommandPool" : {"dispatch": True, "driver" : False, "thunk" : ThunkType.NONE},
     "vkCreateComputePipelines" : {"dispatch": True, "driver" : False, "thunk" : ThunkType.PRIVATE},

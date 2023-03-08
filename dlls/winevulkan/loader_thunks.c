@@ -79,15 +79,6 @@ VkResult WINAPI vkAllocateMemory(VkDevice device, const VkMemoryAllocateInfo *pA
     return vk_unix_call(unix_vkAllocateMemory, &params);
 }
 
-VkResult WINAPI vkCreateSharedHandle(VkDevice device, VkDeviceMemory memory, int* fd)
-{
-    struct vkCreateSharedHandle_params params;
-    params.device = device;
-    params.memory = memory;
-    params.fd = fd;
-    return vk_unix_call(unix_vkCreateSharedHandle, &params);
-}
-
 VkResult WINAPI vkBeginCommandBuffer(VkCommandBuffer commandBuffer, const VkCommandBufferBeginInfo *pBeginInfo)
 {
     struct vkBeginCommandBuffer_params params;
@@ -5002,7 +4993,6 @@ static const struct vulkan_func vk_device_dispatch_table[] =
     {"vkAllocateCommandBuffers", vkAllocateCommandBuffers},
     {"vkAllocateDescriptorSets", vkAllocateDescriptorSets},
     {"vkAllocateMemory", vkAllocateMemory},
-    {"vkCreateSharedHandle", vkCreateSharedHandle},
     {"vkBeginCommandBuffer", vkBeginCommandBuffer},
     {"vkBindAccelerationStructureMemoryNV", vkBindAccelerationStructureMemoryNV},
     {"vkBindBufferMemory", vkBindBufferMemory},

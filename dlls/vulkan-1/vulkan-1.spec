@@ -13,7 +13,6 @@
 @ stdcall vkAllocateCommandBuffers(ptr ptr ptr) winevulkan.vkAllocateCommandBuffers
 @ stdcall vkAllocateDescriptorSets(ptr ptr ptr) winevulkan.vkAllocateDescriptorSets
 @ stdcall vkAllocateMemory(ptr ptr ptr ptr) winevulkan.vkAllocateMemory
-@ stdcall vkCreateSharedHandle(ptr int64 ptr) winevulkan.vkCreateSharedHandle
 @ stdcall vkBeginCommandBuffer(ptr ptr) winevulkan.vkBeginCommandBuffer
 @ stdcall vkBindBufferMemory(ptr int64 int64 int64) winevulkan.vkBindBufferMemory
 @ stdcall vkBindBufferMemory2(ptr long ptr) winevulkan.vkBindBufferMemory2

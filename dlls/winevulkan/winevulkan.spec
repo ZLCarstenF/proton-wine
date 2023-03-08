@@ -23,7 +23,6 @@
 @ stdcall vkAllocateCommandBuffers(ptr ptr ptr)
 @ stdcall vkAllocateDescriptorSets(ptr ptr ptr)
 @ stdcall vkAllocateMemory(ptr ptr ptr ptr)
-@ stdcall vkCreateSharedHandle(ptr int64 ptr)
 @ stdcall vkBeginCommandBuffer(ptr ptr)
 @ stdcall vkBindBufferMemory(ptr int64 int64 int64)
 @ stdcall vkBindBufferMemory2(ptr long ptr)
