@@ -4978,6 +4978,7 @@ NTSTATUS wine_vkAllocateMemory(void *args)
 
     if ((export_info = wine_vk_find_struct(&allocate_info_dup, EXPORT_MEMORY_ALLOCATE_INFO)))
     {
+        FIXME("[wine_vkAllocateMemory] Exporting Handle\n");
         object->handle_types = export_info->handleTypes;
         if (export_info->handleTypes & wine_vk_handle_over_fd_types)
             export_info->handleTypes |= VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT;
@@ -4987,6 +4988,7 @@ NTSTATUS wine_vkAllocateMemory(void *args)
     /* Vulkan consumes imported FDs, but not imported HANDLEs */
     if (handle_import_info)
     {
+        FIXME("[wine_vkAllocateMemory] Importing Handle\n");
         fd_import_info.sType = VK_STRUCTURE_TYPE_IMPORT_MEMORY_FD_INFO_KHR;
         fd_import_info.pNext = allocate_info_dup.pNext;
         fd_import_info.handleType = VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT;
@@ -5053,6 +5055,10 @@ NTSTATUS wine_vkAllocateMemory(void *args)
                 else
                     object->inherit = FALSE;
                 close(fd);
+            }
+            else
+            {
+                FIXME("[wine_vkAllocateMemory] vkGetMemoryFdKHR failed\n");
             }
 
             if (object->handle == INVALID_HANDLE_VALUE)
