@@ -5070,6 +5070,11 @@ NTSTATUS wine_vkAllocateMemory(void *args)
 
         WINE_VK_ADD_NON_DISPATCHABLE_MAPPING(device->phys_dev->instance, object, object->dev_mem);
         *memory = wine_dev_mem_to_handle(object);
+
+        if(export_info)
+        {
+            FIXME("[wine_vkAllocateMemory] object[%p] to pMemory[%p] memory[%x]\n", object, memory, *memory);
+        }
     }
 
     done:
