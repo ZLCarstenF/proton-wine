@@ -5104,14 +5104,16 @@ NTSTATUS wine_vkCreateSharedHandle(void *args)
 
     FIXME("=====wine_vkCreateSharedHandle=====\n");
 
+    struct wine_dev_mem *object = wine_dev_mem_from_handle(memory);
+
     VkMemoryGetFdInfoKHR get_fd_info;
     int fd;
     get_fd_info.sType = VK_STRUCTURE_TYPE_MEMORY_GET_FD_INFO_KHR;
     get_fd_info.pNext = NULL;
-    get_fd_info.memory = memory;
+    get_fd_info.memory = object->dev_mem;
     get_fd_info.handleType = VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT;
 
-    FIXME("[wine_vkCreateSharedHandle] Calling device[%p]->funcs.p_vkGetMemoryFdKHR[%p] memory[%x] \n", device, device->funcs.p_vkGetMemoryFdKHR, memory);
+    FIXME("[wine_vkCreateSharedHandle] Calling device[%p]->funcs.p_vkGetMemoryFdKHR[%p] memory[%x]->dev_mem[x]\n", device, device->funcs.p_vkGetMemoryFdKHR, memory, object->dev_mem);
     if (device->funcs.p_vkGetMemoryFdKHR(device->device, &get_fd_info, &fd) == VK_SUCCESS)
     {
         FIXME("=====wine_vkCreateSharedHandle SUCCESS=====\n");
