@@ -5131,6 +5131,19 @@ NTSTATUS wine_vkCreateSharedHandle(void *args)
     return VK_SUCCESS;
 }
 
+NTSTATUS wine_vkCloseSharedHandle(void *args)
+{
+    struct vkCloseSharedHandle_params *params = args;
+    int32_t fd = params->fd;
+
+    FIXME("=====wine_vkCloseSharedHandle=====\n");
+
+    if(fd)
+        close(*fd);
+
+    return VK_SUCCESS;
+}
+
 NTSTATUS wine_vkGetMemoryWin32HandleKHR(void *args)
 {
     struct vkGetMemoryWin32HandleKHR_params *params = args;

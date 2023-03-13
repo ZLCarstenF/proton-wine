@@ -23,6 +23,7 @@ enum unix_call
     unix_vkAllocateDescriptorSets,
     unix_vkAllocateMemory,
     unix_vkCreateSharedHandle,
+    unix_vkCloseSharedHandle,
     unix_vkBeginCommandBuffer,
     unix_vkBindAccelerationStructureMemoryNV,
     unix_vkBindBufferMemory,
@@ -608,7 +609,11 @@ struct vkCreateSharedHandle_params
 {
     VkDevice device;
     VkDeviceMemory memory;
-    int* fd;
+    int32_t* fd;
+};
+struct vkCloseSharedHandle_params
+{
+    int32_t fd;
 };
 
 struct vkBeginCommandBuffer_params

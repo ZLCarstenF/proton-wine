@@ -19,6 +19,7 @@ NTSTATUS wine_vkAcquireNextImage2KHR(void *args) DECLSPEC_HIDDEN;
 NTSTATUS wine_vkAllocateCommandBuffers(void *args) DECLSPEC_HIDDEN;
 NTSTATUS wine_vkAllocateMemory(void *args) DECLSPEC_HIDDEN;
 NTSTATUS wine_vkCreateSharedHandle(void *args) DECLSPEC_HIDDEN;
+NTSTATUS wine_vkCloseSharedHandle(void *args) DECLSPEC_HIDDEN;
 NTSTATUS wine_vkCreateBuffer(void *args) DECLSPEC_HIDDEN;
 NTSTATUS wine_vkCreateCommandPool(void *args) DECLSPEC_HIDDEN;
 NTSTATUS wine_vkCreateComputePipelines(void *args) DECLSPEC_HIDDEN;
@@ -2199,7 +2200,6 @@ struct vulkan_device_funcs
     VkResult (*p_vkAllocateCommandBuffers)(VkDevice, const VkCommandBufferAllocateInfo_host *, VkCommandBuffer *);
     VkResult (*p_vkAllocateDescriptorSets)(VkDevice, const VkDescriptorSetAllocateInfo_host *, VkDescriptorSet *);
     VkResult (*p_vkAllocateMemory)(VkDevice, const VkMemoryAllocateInfo_host *, const VkAllocationCallbacks *, VkDeviceMemory *);
-    //VkResult (*p_vkCreateSharedHandle)(VkDevice, VkDeviceMemory, uint32_t *);
     VkResult (*p_vkBeginCommandBuffer)(VkCommandBuffer, const VkCommandBufferBeginInfo_host *);
     VkResult (*p_vkBindAccelerationStructureMemoryNV)(VkDevice, uint32_t, const VkBindAccelerationStructureMemoryInfoNV_host *);
     VkResult (*p_vkBindBufferMemory)(VkDevice, VkBuffer, VkDeviceMemory, VkDeviceSize);
